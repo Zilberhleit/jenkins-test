@@ -31,4 +31,10 @@ post {
   always {
     DeleteDir()
   }
+  failure {
+    echo "Failed"
+    mail to: "zilberhleitmark@mail.ru"
+    subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} failed"
+    body: "For context about pipeline fail check console output on address ${env.BUILD_URL}"
+  }
 }

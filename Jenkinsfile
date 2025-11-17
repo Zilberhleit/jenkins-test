@@ -22,6 +22,13 @@ pipeline {
     stage("Deploy") {
       steps {
         echo "Deploying app..."
+        sh "./deploy staging"
+      }
+    }
+    stage("Production") {
+      steps {
+        echo :Producting app..."
+        sh "./deploy production"
       }
     }
   }
